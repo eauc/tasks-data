@@ -22,24 +22,29 @@
                      :output-dir "build"
                      :pretty-print true
                      :target :nodejs}}}}
+  :figwheel
+  {}
   :npm
-  {:dependencies [[express "4.15.2"]
-                  [source-map-support "0.4.15"]]}
+  {:dependencies [[body-parser "^1.17.1"]
+                  [compression "^1.6.2"]
+                  [cors "^2.8.3"]
+                  [express "^4.15.2"]
+                  [helmet "^3.6.0"]
+                  [mongoose "^4.9.8"]]}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Profiles
   :profiles
-  { ;; :dev
-   ;; {:dependencies [[figwheel-sidecar "0.5.10"]
-   ;;                 [com.cemerick/piggieback "0.2.1"]]
-   ;;  :cljsbuild
-   ;;  {:builds
-   ;;   {:app {:compiler {:asset-path "build"
-   ;;                     :output-dir "build"
-   ;;                     :optimizations :none
-   ;;                     :pretty-print true}}}}}
+  {:dev
+   {:dependencies [[figwheel-sidecar "0.5.10"]
+                   [com.cemerick/piggieback "0.2.1"]]
+    :cljsbuild
+    {:builds
+     {:app {:figwheel {:on-jsload "tasks.core/create-app"}}}}
+    :npm
+    {:dependencies [[source-map-support "^0.4.15"]
+                    [ws "^2.3.1"]]}}
    :production
    {:cljsbuild
     {:builds
      {:app {:compiler {:closure-defines {goog.DEBUG false}}}}}}
-   ;; :repl [:dev]
-   })
+   :repl [:dev]})
