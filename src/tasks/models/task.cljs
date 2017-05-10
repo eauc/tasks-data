@@ -15,7 +15,6 @@
                              :required true
                              :trim true}
                      :body {:type (aget Types "String")
-                            :required true
                             :trim true}
                      :done {:type (aget Types "Boolean")
                             :required true}})))

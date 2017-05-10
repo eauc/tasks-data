@@ -1,7 +1,7 @@
 (ns tasks.debug)
 
 (defonce debug?
-  ^boolean js/goog.DEBUG)
+  (not= "production" (aget js/process "env" "NODE_ENV")))
 
 (defn spy
   ([label]

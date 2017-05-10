@@ -30,7 +30,8 @@
                   [cors "^2.8.3"]
                   [express "^4.15.2"]
                   [helmet "^3.6.0"]
-                  [mongoose "^4.9.8"]]}
+                  [mongoose "^4.9.8"]]
+   :root "build"}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Profiles
   :profiles
@@ -44,7 +45,5 @@
     {:dependencies [[source-map-support "^0.4.15"]
                     [ws "^2.3.1"]]}}
    :production
-   {:cljsbuild
-    {:builds
-     {:app {:compiler {:closure-defines {goog.DEBUG false}}}}}}
+   {}
    :repl [:dev]})
