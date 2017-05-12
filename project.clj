@@ -29,6 +29,8 @@
                   [compression "^1.6.2"]
                   [cors "^2.8.3"]
                   [express "^4.15.2"]
+                  [express-jwt "^5.3.0"]
+                  [express-jwt-permissions "^0.5.0"]
                   [helmet "^3.6.0"]
                   [mongoose "^4.9.8"]]
    :root "build"}
